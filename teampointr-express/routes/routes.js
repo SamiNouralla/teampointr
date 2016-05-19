@@ -9,16 +9,17 @@ res.json(found); // Returns the result back to user in JSON format
 });
 
 
-var chgpass = require('config/chgpass'); 
-var register = require('config/register'); 
-var login = require('config/login');   
+var chgpass = require('chgpass'); 
+var register = require('register'); 
+var login = require('login');   
+
 
 module.exports = function(app) {        
 
 
      app.get('/', function(req, res) {       
 
-          res.end("Node-Android-Project");    
+          res.end("teampointr");    
      });     
 
      app.post('/login',function(req,res){        
@@ -60,7 +61,7 @@ module.exports = function(app) {
                console.log(found);             
                res.json(found);    
      });     
-     });     
+     });    
 
      app.post('/api/resetpass/chg', function(req, res) {         
           var email = req.body.email;         
@@ -73,4 +74,8 @@ module.exports = function(app) {
      
      });     
      });  
+     
+     
+     
+     
 };
