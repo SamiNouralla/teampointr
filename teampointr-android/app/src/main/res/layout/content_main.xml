@@ -12,11 +12,6 @@
     tools:context="teampointr.teampointr.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
