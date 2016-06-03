@@ -31,6 +31,7 @@ import java.security.NoSuchAlgorithmException;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    public static final String EXTRA_MESSAGE = "teampointr.teampointr.user_id";
 
     private CallbackManager callbackManager;
 
@@ -49,14 +50,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.v(TAG, "Facebook login successfully");
+                Log.v(TAG, "Facebook user_id: " + loginResult.getAccessToken().getUserId());
 
                 // display a toast
                 Context context = getApplicationContext();
                 CharSequence text = "Logged in successfully";
                 int duration = Toast.LENGTH_SHORT;
-
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
+
+                // start the maps activity
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, loginResult.getAccessToken().getUserId());
+                startActivity(intent);
             }
 
             @Override
